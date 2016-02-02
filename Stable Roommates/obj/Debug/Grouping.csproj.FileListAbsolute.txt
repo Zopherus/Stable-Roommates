@@ -1,0 +1,6 @@
+C:\Users\1012746\AppData\Local\Temporary Projects\Grouping\bin\Debug\Grouping.exe.config
+C:\Users\1012746\AppData\Local\Temporary Projects\Grouping\bin\Debug\Grouping.exe
+C:\Users\1012746\AppData\Local\Temporary Projects\Grouping\bin\Debug\Grouping.pdb
+C:\Users\1012746\AppData\Local\Temporary Projects\Grouping\obj\Debug\Grouping.csprojResolveAssemblyReference.cache
+C:\Users\1012746\AppData\Local\Temporary Projects\Grouping\obj\Debug\Grouping.exe
+C:\Users\1012746\AppData\Local\Temporary Projects\Grouping\obj\Debug\Grouping.pdb
