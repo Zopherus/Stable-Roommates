@@ -33,9 +33,10 @@ namespace Grouping
 					person.Preferences.Add(findPerson(name));
 				}
 			}
-
-
-
+			List<Person> roommates = new List<Person>{People[0], People[1], People[2], People[3]};
+			Room room = new Room(roommates);
+			Console.WriteLine(room.Score());
+			Console.ReadLine();
 		}
 
 		static Person findPerson(string name)
