@@ -4,3 +4,9 @@ C:\Users\1012746\Desktop\Stable-Roommates\Stable Roommates\bin\Debug\Stable Room
 C:\Users\1012746\Desktop\Stable-Roommates\Stable Roommates\obj\Debug\Stable Roommates.csprojResolveAssemblyReference.cache
 C:\Users\1012746\Desktop\Stable-Roommates\Stable Roommates\obj\Debug\Stable Roommates.exe
 C:\Users\1012746\Desktop\Stable-Roommates\Stable Roommates\obj\Debug\Stable Roommates.pdb
+C:\Users\Eric\Desktop\GitHub\Stable-Roommates\Stable Roommates\bin\Debug\Stable Roommates.exe.config
+C:\Users\Eric\Desktop\GitHub\Stable-Roommates\Stable Roommates\obj\Debug\Stable Roommates.exe
+C:\Users\Eric\Desktop\GitHub\Stable-Roommates\Stable Roommates\obj\Debug\Stable Roommates.pdb
+C:\Users\Eric\Desktop\GitHub\Stable-Roommates\Stable Roommates\bin\Debug\Stable Roommates.exe
+C:\Users\Eric\Desktop\GitHub\Stable-Roommates\Stable Roommates\bin\Debug\Stable Roommates.pdb
+C:\Users\Eric\Desktop\GitHub\Stable-Roommates\Stable Roommates\obj\Debug\Stable Roommates.csprojResolveAssemblyReference.cache

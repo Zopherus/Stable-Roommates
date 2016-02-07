@@ -15,7 +15,7 @@ namespace Grouping
 		static List<Person> People = new List<Person>();
 		static void Main(string[] args)
 		{
-			StreamReader streamReader = new StreamReader("C:/Users/1012746/Desktop/People.txt");
+			StreamReader streamReader = new StreamReader("People.txt");
 			int numberOfPeople = int.Parse(streamReader.ReadLine());
 			for (int counter = 0; counter < numberOfPeople; counter++)
 			{
@@ -23,7 +23,7 @@ namespace Grouping
 				People.Add(person);
 			}
 
-			streamReader = new StreamReader("C:/Users/1012746/Desktop/Preferences.txt");
+			streamReader = new StreamReader("Preferences.txt");
 			for (int personNumber = 0; personNumber < People.Count; personNumber++)
 			{
 				Person person = findPerson(streamReader.ReadLine());
@@ -33,10 +33,10 @@ namespace Grouping
 					person.Preferences.Add(findPerson(name));
 				}
 			}
-			List<Person> roommates = new List<Person>{People[0], People[1], People[2], People[3]};
-			Room room = new Room(roommates);
-			Console.WriteLine(room.Score());
-			Console.ReadLine();
+
+            List<List<Person>> permutations = Permutations(People).ToList<List<Person>>();
+            Console.WriteLine();
+            Console.ReadLine();
 		}
 
 		static Person findPerson(string name)
@@ -49,5 +49,32 @@ namespace Grouping
 			return null;
 		}
 
-	}
+        static IEnumerable<List<Person>> Permutations(List<Person> people)
+        {
+            if (people.Count <= 0)
+                yield return Enumerable.Empty<Person>().ToList();
+            if (people.Count <= 1)
+                yield return people;
+            else
+            {
+                for (int startingElementIndex = 0; startingElementIndex < people.Count; startingElementIndex++)
+                {
+                    Person person = people[startingElementIndex];
+                    List<Person> remainingPeople = new List<Person>(people);
+                    remainingPeople.Remove(person);
+                    foreach (List<Person> permutationOfRemainder in Permutations(remainingPeople))
+                    {
+                        permutationOfRemainder.Insert(0, person);
+                        yield return permutationOfRemainder;
+                    }
+                }
+            }
+        }
+
+        private static List<Person> AllExcept(List<Person> sequence, int indexToSkip)
+        {
+            sequence.RemoveAt(indexToSkip);
+            return sequence;
+        }
+    }
 }
