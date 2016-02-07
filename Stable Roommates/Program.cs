@@ -35,15 +35,15 @@ namespace Grouping
 			}
 
             List<List<Person>> permutations = Permutations(People).ToList<List<Person>>();
-            int Mininmum = Int32.MaxValue;
+            int Maximum = Int32.MinValue;
             List<Room> BestRooms = new List<Room>();
             foreach(List<Person> people in permutations)
             {
                 List<Room> rooms = PermutationToRooms(people);
                 int score = ListRoomScore(rooms);
-                if (score < Mininmum)
+                if (score > Maximum)
                 {
-                    Mininmum = score;
+                    Maximum = score;
                     BestRooms = rooms;
                 }
             }
