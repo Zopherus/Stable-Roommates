@@ -44,5 +44,11 @@ namespace Grouping
 			}
 			return 0;
 		}
+
+        public override string ToString()
+        {
+            string[] names = Roommates.Select(x => x.Name).ToArray();
+            return string.Join(", ", names) + Score().ToString();
+        }
 	}
 }

@@ -35,9 +35,58 @@ namespace Grouping
 			}
 
             List<List<Person>> permutations = Permutations(People).ToList<List<Person>>();
-            Console.WriteLine();
+            int Mininmum = Int32.MaxValue;
+            List<Room> BestRooms = new List<Room>();
+            foreach(List<Person> people in permutations)
+            {
+                List<Room> rooms = PermutationToRooms(people);
+                int score = ListRoomScore(rooms);
+                if (score < Mininmum)
+                {
+                    Mininmum = score;
+                    BestRooms = rooms;
+                }
+            }
+            foreach (Room room in BestRooms)
+            {
+                Console.WriteLine(room.ToString());
+            }
             Console.ReadLine();
 		}
+
+        static int ListRoomScore(List<Room> rooms)
+        {
+            int result = 0;
+            foreach(Room room in rooms)
+            {
+                result += room.Score();
+            }
+            return result;
+        }
+
+        static List<Room> PermutationToRooms(List<Person> people)
+        {
+            List<Room> rooms = new List<Room>();
+            for (int startPosition = 0; startPosition < people.Count - SIZEROOM; startPosition += SIZEROOM)
+            {
+                List<Person> roommates = new List<Person>();
+                for (int counter = startPosition; counter < startPosition + SIZEROOM; counter++)
+                {
+                    roommates.Add(people[counter]);
+                }
+                Room room = new Room(roommates);
+                rooms.Add(room);
+            }
+            int peopleLeft = people.Count % SIZEROOM;
+            List<Person> roommatesLeft = new List<Person>();
+            for (int counter = 1; counter < peopleLeft + 1; counter++)
+            {
+                roommatesLeft.Add(people[people.Count - counter]);
+            }
+            Room roomLeft = new Room(roommatesLeft);
+            rooms.Add(roomLeft);
+            return rooms;
+        }
 
 		static Person findPerson(string name)
 		{
