@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Diagnostics;
 
 namespace Grouping
 {
@@ -15,20 +16,34 @@ namespace Grouping
 		static List<Person> People = new List<Person>();
 		static void Main(string[] args)
 		{
-			StreamReader streamReader = new StreamReader("People.txt");
+            // Use stopwatch to time the program
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            
+            // Read the names of the people from a text file
+			StreamReader streamReader = new StreamReader("People1.txt");
+
+            // The first line holds the total number of people
 			int numberOfPeople = int.Parse(streamReader.ReadLine());
+
+            // The next lines hold the names of the people
+            // Add the people to the Person list
 			for (int counter = 0; counter < numberOfPeople; counter++)
 			{
-				Person person = new Person(streamReader.ReadLine());
+				Person person = new Person(streamReader.ReadLine().Split('.')[1]);
 				People.Add(person);
 			}
 
-			streamReader = new StreamReader("Preferences.txt");
+            // Read in the preferences from a text file
+            streamReader = new StreamReader("Preferences1.txt");
 			for (int personNumber = 0; personNumber < People.Count; personNumber++)
 			{
+                // Use findPerson to find the person that the preferences are about
 				Person person = findPerson(streamReader.ReadLine());
+
+                // Loop through the next couple lines to read the data of the preferences
 				for (int counter = 0; counter < NUM_PREFERENCES; counter++)
 				{
+
 					string name = streamReader.ReadLine().Split('.')[1];
 					person.Preferences.Add(findPerson(name));
 				}
@@ -51,6 +66,8 @@ namespace Grouping
             {
                 Console.WriteLine(room.ToString());
             }
+            stopwatch.Stop();
+            Console.WriteLine(stopwatch.ElapsedMilliseconds);
             Console.ReadLine();
 		}
 
